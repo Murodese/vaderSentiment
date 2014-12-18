@@ -28,16 +28,15 @@ importlib.reload(sys)
 
 
 def make_lex_dict(f):
-    return dict([(w_m[0], float(w_m[1])) for w_m in [wmsr.strip().split('\t')[0:2] for wmsr in open(f) ]])
+    return dict([(w_m[0], float(w_m[1])) for w_m in [wmsr.strip().split('\t')[0:2] for wmsr in open(f)]])
     
 # empirically derived valence ratings for words, emoticons, slang, swear words, acronyms/initialisms
-f = 'vader_sentiment_lexicon.txt'
+vader_lexicon = 'vader_sentiment_lexicon.txt'
 
 try:
-    WORD_VALENCE_DICT = make_lex_dict(f)
+    WORD_VALENCE_DICT = make_lex_dict(vader_lexicon)
 except:
-    f = os.path.join(os.path.dirname(__file__), 'vader_sentiment_lexicon.txt')
-    WORD_VALENCE_DICT = make_lex_dict(f)
+    WORD_VALENCE_DICT = make_lex_dict(os.path.join(os.path.dirname(__file__), 'vader_sentiment_lexicon.txt'))
 
 
 # CONSTANTS #
