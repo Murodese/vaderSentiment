@@ -28,7 +28,7 @@ importlib.reload(sys)
 
 
 def make_lex_dict(f):
-    return dict([(w_m[0], float(w_m[1])) for w_m in [wmsr.strip().split('\t')[0:2] for wmsr in open(f)]])
+    return dict([(w_m[0], float(w_m[1])) for w_m in [wmsr.strip().split('\t')[0:2] for wmsr in open(f, encoding='utf-8')]])
     
 # empirically derived valence ratings for words, emoticons, slang, swear words, acronyms/initialisms
 vader_lexicon = 'vader_sentiment_lexicon.txt'
